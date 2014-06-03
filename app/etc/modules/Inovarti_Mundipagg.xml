@@ -11,7 +11,7 @@
     <modules>
         <Inovarti_Mundipagg>
             <active>true</active>
-            <codePool>local</codePool>
+            <codePool>community</codePool>
         </Inovarti_Mundipagg>
     </modules>
 </config> 

@@ -17,15 +17,6 @@ if ($_info = $this->getInfo()):
 <?php endif; ?>
 <script type="text/javascript">// <![CDATA[
 	
-	
-    function captureMundipaggOrder(OrderKey, orderId)
-    {
-        var url = '<?php echo $this->getUrl('mundipagg/admin/capture') ?>?OrderKey=' + OrderKey + '&order=' + orderId;
-        showModalInovarti(url,"Captura na Mundipagg");
-        
-    }
-	
-	
     function loadMundipaggWebServiceData(OrderKey, orderId)
     {
         var url = '<?php echo $this->getUrl('mundipagg/admin/consult') ?>?OrderKey=' + OrderKey + '&order=' + orderId;
