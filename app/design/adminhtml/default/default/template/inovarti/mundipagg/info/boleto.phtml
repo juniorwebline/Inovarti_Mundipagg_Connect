@@ -1,0 +1,53 @@
+<?php
+/**
+ *
+ * @category   Inovarti
+ * @package    Inovarti_Mundipagg
+ * @author     Suporte <suporte@inovarti.com.br>
+ */
+if ($_info = $this->getInfo()):
+    ?>
+    <?php
+    $boleto = $this->getBoletoUrl();
+    ?>
+    <?php echo 'Boleto Bancário' ?><br/>
+    <?php if (isset($boleto)): ?>
+        <?php echo "<a href=\"" . $boleto . "\" onclick=\"this.target='_blank'\">" . $this->__('Clique aqui para imprimir o Boleto') . "</a>"; ?><br/>
+    <?php endif; ?>
+<?php endif; ?>
+<script type="text/javascript">// <![CDATA[
+	
+	
+    function captureMundipaggOrder(OrderKey, orderId)
+    {
+        var url = '<?php echo $this->getUrl('mundipagg/admin/capture') ?>?OrderKey=' + OrderKey + '&order=' + orderId;
+        showModalInovarti(url,"Captura na Mundipagg");
+        
+    }
+	
+	
+    function loadMundipaggWebServiceData(OrderKey, orderId)
+    {
+        var url = '<?php echo $this->getUrl('mundipagg/admin/consult') ?>?OrderKey=' + OrderKey + '&order=' + orderId;
+        showModalInovarti(url,"Consulta na Mundipagg ");	
+    }
+    function showModalInovarti(url,title){
+        win = new Window({ 
+            title: title, 
+            url:url, 
+            zIndex:3000, 
+            destroyOnClose: true, 
+            recenterAuto:false, 
+            resizable: false, 
+            width:750, 
+            height:473, 
+            minimizable: false, 
+            maximizable: false, 
+            draggable: false});
+        win.showCenter(true);
+    }
+    
+    // ]]></script>
+<style>
+    .dialog_content{background-color: #ffffff;}
+</style>

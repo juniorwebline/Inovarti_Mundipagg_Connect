@@ -1,0 +1,15 @@
+<?php
+/**
+ *
+ * @category   Inovarti
+ * @package    Inovarti_Mundipagg
+ * @author     Suporte <suporte@inovarti.com.br>
+ */
+?>
+<?php echo $this->htmlEscape($this->getMethod()->getTitle()); ?><br/>
+<?php echo 'Nome no cartão: '. $this->htmlEscape($this->getInfo()->getCcOwner()) ?><br/>
+<?php echo 'Tipo de cartão: '. $this->htmlEscape($this->getCcTypeName()) ?><br/>
+<?php echo 'Número do cartão: xxxx-'. $this->htmlEscape($this->getInfo()->getCcLast4()) ?><br/>
+<?php echo 'Data de validade: '. $this->htmlEscape($this->getCcExpMonth()).'/'. $this->htmlEscape($this->getInfo()->getCcExpYear()) ?><br/>
+<?php echo 'Parcelamento(s):  '. $this->htmlEscape($this->getCcParcelamento()).'x R$'.$this->htmlEscape(number_format($this->getCcAmountInCents()/$this->getCcParcelamento(),2,',','.')) ?><br/>
+<?php echo 'Cpf:  '. $this->htmlEscape($this->getCcCpf()) ?><br/>

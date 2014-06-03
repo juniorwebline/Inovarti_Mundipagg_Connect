@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ *
+ * @category   Inovarti
+ * @package    Inovarti_Mundipagg
+ * @author     Suporte <suporte@inovarti.com.br>
+ */
+ -->
+<layout version="0.1.0">
+    <checkout_onepage_index>
+        <reference name="head">
+            <action method="addJs" ifconfig="payment/mundipaggsettings/active"><script>inovarti/core/jquery.min.js</script></action>
+            <action method="addJs" ifconfig="payment/mundipaggsettings/active"><script>inovarti/script.js</script></action>
+    	</reference>       
+    </checkout_onepage_index>
+    <onepagecheckout_index_index>
+        <reference name="head">
+            <action method="addJs" ifconfig="payment/mundipaggsettings/active"><script>inovarti/core/jquery.min.js</script></action>
+            <action method="addJs" ifconfig="payment/mundipaggsettings/active"><script>inovarti/script.js</script></action>
+    	</reference>        
+    </onepagecheckout_index_index>
+    <onestepcheckout_index_index>
+        <reference name="head">
+            <action method="addJs" ifconfig="payment/mundipaggsettings/active"><script>inovarti/core/jquery.min.js</script></action>
+            <action method="addJs" ifconfig="payment/mundipaggsettings/active"><script>inovarti/script.js</script></action>
+    	</reference>        
+    </onestepcheckout_index_index>
+    <inovarti_onestepcheckout_index_index>
+        <reference name="head">
+            <action method="addJs" ifconfig="payment/mundipaggsettings/active"><script>inovarti/core/jquery.min.js</script></action>
+            <action method="addJs" ifconfig="payment/mundipaggsettings/active"><script>inovarti/script.js</script></action>
+    	</reference>        
+    </inovarti_onestepcheckout_index_index>
+    <mundipagg_index_index>
+        <remove name="left"/>
+        <remove name="right"/>
+        <reference name="content">
+            <block type="mundipagg/frontend_mundipagg" name="mundipagg" />
+        </reference>
+    </mundipagg_index_index>
+</layout>

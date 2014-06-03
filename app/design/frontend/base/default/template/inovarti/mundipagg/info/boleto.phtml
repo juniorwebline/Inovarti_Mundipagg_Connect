@@ -1,0 +1,17 @@
+<?php
+/**
+ *
+ * @category   Inovarti
+ * @package    Inovarti_Mundipagg
+ * @author     Suporte <suporte@inovarti.com.br>
+ */
+if ($_info = $this->getInfo()):
+    ?>
+    <?php
+    $boleto = $this->getBoletoUrl();
+    ?>
+    <?php echo $this->htmlEscape($this->getMethod()->getTitle()); ?><br/>
+    <?php if (isset($boleto)): ?>
+        <?php echo "<a href=\"" . $boleto . "\" onclick=\"this.target='_blank'\" class=\"btn btn-warning\"><i class=\"glyphicon glyphicon-barcode\"></i> " . $this->__('Imprimir o Boleto') . "</a>"; ?>
+    <?php endif; ?>
+<?php endif; ?>

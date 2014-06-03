@@ -1,0 +1,51 @@
+<?php
+/**
+ *
+ * @category   Inovarti
+ * @package    Inovarti_Mundipagg
+ * @author     Suporte <suporte@inovarti.com.br>
+ */
+?>
+<?php echo 'Cartão de Crédito' ?><br/>
+<?php echo 'Nome no cartão: ' . $this->htmlEscape($this->getInfo()->getCcOwner()) ?><br/>
+<?php echo 'Tipo de cartão: ' . $this->htmlEscape($this->getCcTypeName()) ?><br/>
+<?php echo 'Número do cartão: xxxx-' . $this->htmlEscape($this->getInfo()->getCcLast4()) ?><br/>
+<?php echo 'Data de validade: ' . $this->htmlEscape($this->getCcExpMonth()) . '/' . $this->htmlEscape($this->getInfo()->getCcExpYear()) ?><br/>
+<?php echo 'Parcelamento(s):  ' . $this->htmlEscape($this->getCcParcelamento()) . 'x R$' . $this->htmlEscape(number_format($this->getCcAmountInCents() / $this->getCcParcelamento(), 2, ',', '.')) ?><br/>
+<?php echo 'Cpf:  ' . $this->htmlEscape($this->getCcCpf()) ?><br/>
+<script type="text/javascript">// <![CDATA[
+	
+	
+    function captureMundipaggOrder(OrderKey, orderId)
+    {
+        var url = '<?php echo $this->getUrl('mundipagg/admin/capture') ?>?OrderKey=' + OrderKey + '&order=' + orderId;
+        showModalInovarti(url,"Captura na Mundipagg");
+        
+    }
+	
+	
+    function loadMundipaggWebServiceData(OrderKey, orderId)
+    {
+        var url = '<?php echo $this->getUrl('mundipagg/admin/consult') ?>?OrderKey=' + OrderKey + '&order=' + orderId;
+        showModalInovarti(url,"Consulta na Mundipagg ");	
+    }
+    function showModalInovarti(url,title){
+        win = new Window({ 
+            title: title, 
+            url:url, 
+            zIndex:3000, 
+            destroyOnClose: true, 
+            recenterAuto:false, 
+            resizable: false, 
+            width:750, 
+            height:473, 
+            minimizable: false, 
+            maximizable: false, 
+            draggable: false});
+        win.showCenter(true);
+    }
+    
+    // ]]></script>
+<style>
+    .dialog_content{background-color: #ffffff;}
+</style>

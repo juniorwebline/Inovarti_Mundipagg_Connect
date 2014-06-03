@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ *
+ * @category   Inovarti
+ * @package    Inovarti_Mundipagg
+ * @author     Suporte <suporte@inovarti.com.br>
+ */
+ -->
+<layout version="0.1.0">
+    <adminhtml_sales_order_view>
+        <reference name="head">
+        <action method="addItem"><type>js_css</type><name>prototype/windows/themes/default.css</name></action>
+    </reference>
+    </adminhtml_sales_order_view>
+</layout>
