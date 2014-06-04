@@ -175,7 +175,7 @@
                 <clearsale>0</clearsale>
             </mundipaggsettings>
             <mundipagg_boleto>
-                <active>1</active>
+                <active>0</active>
                 <model>mundipagg/boleto</model>
                 <order_status>pending_payment</order_status>
                 <title>Boleto Bancário</title>
@@ -183,7 +183,7 @@
                 <sort_order>1</sort_order>
             </mundipagg_boleto>
             <mundipagg>
-                <active>1</active>
+                <active>0</active>
                 <model>mundipagg/payment</model>
                 <order_status>processing</order_status>
                 <title>Cartão de crédito</title>
