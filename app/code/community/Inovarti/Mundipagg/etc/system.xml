@@ -34,7 +34,7 @@
                             <sort_order>10</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </title>
                         <service translate="label">
                             <label>Url Gateway</label>
@@ -42,7 +42,7 @@
                             <sort_order>20</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                             <comment><![CDATA[https://transaction.mundipaggone.com/MundiPaggService.svc?wsdl]]></comment>
                         </service>
                         <merchant_id translate="label">
@@ -51,7 +51,7 @@
                             <sort_order>30</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                             <comment><![CDATA[8A2DD57F-1ED9-4153-B4CE-69683EFADAD5]]></comment>
                         </merchant_id>
                         <clearsale translate="label">
@@ -61,7 +61,7 @@
                             <sort_order>40</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                             <comment><![CDATA[Para utilizar a ClearSale, é necessário contratar os serviços da ClearSale e em seguida solicitar o cadastro do anti-fraude para a loja e enviar a chave de afiliação da ClearSale para o suporte da Mundipagg.]]></comment>
                         </clearsale>
                         <enable_test_mode translate="label">
@@ -71,7 +71,7 @@
                             <sort_order>50</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </enable_test_mode>
                         <retries translate="label">
                             <label>Quantidade de tentativa</label>
@@ -80,7 +80,7 @@
                             <sort_order>60</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                             <comment><![CDATA[Quantidade de tentatica de cobrança na Mundipagg]]></comment>
                         </retries>
                         <parcelamento translate="label">
@@ -90,25 +90,23 @@
                             <sort_order>70</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </parcelamento>
-                        
 			<price_min translate="label">
                             <label>Valor minimo parcela</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>80</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </price_min>
-                        
                         <desconto_parcelamento translate="label">
                             <label>Desconto a vista(%)</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>85</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </desconto_parcelamento>
                         <debug translate="label">
                             <label>Debug</label>
@@ -117,7 +115,7 @@
                             <sort_order>100</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </debug>
                     </fields>
                 </mundipaggsettings>
@@ -126,7 +124,7 @@
                     <sort_order>1</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
-                    <show_in_store>0</show_in_store>
+                    <show_in_store>1</show_in_store>
                     <comment><![CDATA[<a href="http://www.inovarti.com.br" target="_blank"><img title="Inovarti" alt="Inovarti" src="//www.inovarti.com.br/inovarti_logo.php"/></a></span>]]></comment>
                     <fields>
                         <active translate="label">
@@ -136,7 +134,7 @@
                             <sort_order>1</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </active>
                         <title translate="label">
                             <label>Titulo</label>
@@ -144,7 +142,7 @@
                             <sort_order>1</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </title>
                         <order_status translate="label">
                             <label>Status Pedido Novo</label>
@@ -161,7 +159,7 @@
                             <sort_order>2</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </title>
                         <message translate="label">
                             <label>Instrução</label>
@@ -169,7 +167,7 @@
                             <sort_order>14</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </message>
                         <nossonumero translate="label">
                             <label>Nosso Numero</label>
@@ -178,7 +176,7 @@
                             <sort_order>15</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                             <comment><![CDATA[Número de identificação do boleto]]>
                             </comment>
                         </nossonumero>
@@ -189,7 +187,7 @@
                             <sort_order>16</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                             <comment><![CDATA[Dias que serão adicionados a data atual até o vencimento.]]>
                             </comment>
                         </daystoaddinboletoexpirationdate>
@@ -199,7 +197,7 @@
                             <sort_order>17</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                             <comment><![CDATA[Identificador da transação pela loja.]]>
                             </comment>
                         </transactionreference>
@@ -209,118 +207,16 @@
                             <sort_order>25</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </sort_order>
                     </fields>
                 </mundipagg_boleto>
-                <mundipagg_cartaoboleto translate="label comment" module="mundipagg">
-                    <label>Mundipagg Cartão e Boleto</label>
-                    <sort_order>2</sort_order>
-                    <show_in_default>1</show_in_default>
-                    <show_in_website>1</show_in_website>
-                    <show_in_store>0</show_in_store>
-                    <comment><![CDATA[<a href="http://www.inovarti.com.br" target="_blank"><img title="Inovarti" alt="Inovarti" src="//www.inovarti.com.br/inovarti_logo.php"/></a></span>]]></comment>
-                    <fields>
-                        <active translate="label">
-                            <label>Enabled</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>1</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </active>
-                        <title translate="label">
-                            <label>Titulo</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>1</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
-                        </title>
-                        <payment_action translate="label">
-                            <label>Payment Action</label>
-                            <frontend_type>select</frontend_type>
-                             <source_model>Inovarti_Mundipagg_Model_Payment_PaymentAction</source_model>
-                            <sort_order>2</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
-                        </payment_action>
-                        <cctypes translate="label">
-                            <label>Credit Card Types</label>
-                            <frontend_type>multiselect</frontend_type>
-                            <source_model>Inovarti_Mundipagg_Model_Source_Cctype</source_model>
-                            <sort_order>3</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
-                        </cctypes>
-                        <descricao translate="label">
-                            <label>Descrição</label>
-                            <frontend_type>textarea</frontend_type>
-                            <sort_order>9</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
-                            <comment><![CDATA[Informar o cliente que boleto sera na ultima tela e pedir para desativar popup do navegador.]]></comment>
-                        </descricao>
-                        <message translate="label">
-                            <label>Instrução</label>
-                            <frontend_type>textarea</frontend_type>
-                            <sort_order>10</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
-                        </message>
-                        <nossonumero translate="label">
-                            <label>Nosso Numero</label>
-                            <frontend_type>text</frontend_type>
-                            <validate>validate-number</validate>
-                            <sort_order>20</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
-                            <comment><![CDATA[Número de identificação do boleto]]>
-                            </comment>
-                        </nossonumero>
-                        <daystoaddinboletoexpirationdate translate="label">
-                            <label>+ Dias</label>
-                            <frontend_type>text</frontend_type>
-                            <validate>validate-number</validate>
-                            <sort_order>30</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
-                            <comment><![CDATA[Dias que serão adicionados a data atual até o vencimento.]]>
-                            </comment>
-                        </daystoaddinboletoexpirationdate>
-                        <transactionreference translate="label">
-                            <label>Identificador</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>40</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
-                            <comment><![CDATA[Identificador da transação pela loja.]]>
-                            </comment>
-                        </transactionreference>
-                        <sort_order translate="label">
-                            <label>Order</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>60</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
-                        </sort_order>
-                    </fields>
-                </mundipagg_cartaoboleto>
                 <mundipagg translate="label comment" module="mundipagg">
                     <label>Mundipagg Cartão de Credito</label>
                     <sort_order>3</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
-                    <show_in_store>0</show_in_store>
+                    <show_in_store>1</show_in_store>
                     <comment><![CDATA[<a href="http://www.inovarti.com.br" target="_blank"><img title="Inovarti" alt="Inovarti" src="//www.inovarti.com.br/inovarti_logo.php"/></a></span>]]></comment>
                     <fields>
                         <active translate="label">
@@ -338,7 +234,7 @@
                             <sort_order>1</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </title>
                         <payment_action translate="label">
                             <label>Payment Action</label>
@@ -347,7 +243,7 @@
                             <sort_order>2</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </payment_action>
                         <cctypes translate="label">
                             <label>Credit Card Types</label>
@@ -356,7 +252,7 @@
                             <sort_order>3</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </cctypes>
                         <sort_order translate="label">
                             <label>Order</label>
@@ -364,63 +260,10 @@
                             <sort_order>12</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </sort_order>
                     </fields>
                 </mundipagg>
-                <mundipaggdoiscartao translate="label comment" module="mundipagg">
-                    <label>Mundipagg Dois Cartão de Crédito</label>
-                    <sort_order>4</sort_order>
-                    <show_in_default>1</show_in_default>
-                    <show_in_website>1</show_in_website>
-                    <show_in_store>0</show_in_store>
-                    <comment><![CDATA[<a href="http://www.inovarti.com.br" target="_blank"><img title="Inovarti" alt="Inovarti" src="//www.inovarti.com.br/inovarti_logo.php"/></a></span>]]></comment>
-                    <fields>
-                        <active translate="label">
-                            <label>Enabled</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>1</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </active>
-                        <title translate="label">
-                            <label>Titulo</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>1</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
-                        </title>
-                        <payment_action translate="label">
-                            <label>Payment Action</label>
-                            <frontend_type>select</frontend_type>
-                             <source_model>Inovarti_Mundipagg_Model_Payment_PaymentAction</source_model>
-                            <sort_order>2</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
-                        </payment_action>
-                        <cctypes translate="label">
-                            <label>Credit Card Types</label>
-                            <frontend_type>multiselect</frontend_type>
-                            <source_model>Inovarti_Mundipagg_Model_Source_Cctype</source_model>
-                            <sort_order>3</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
-                        </cctypes>
-                        <sort_order translate="label">
-                            <label>Order</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>12</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
-                        </sort_order>
-                    </fields>
-                </mundipaggdoiscartao>
             </groups>
         </payment>
     </sections>
