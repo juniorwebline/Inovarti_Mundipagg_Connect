@@ -1,0 +1,97 @@
+.icon-bandeira{ position: relative; background-image: url(../images/bandeiras_mundipagg.png); background-repeat:  no-repeat; background-position:  0 0; display: inline-block;width:46px;height:30px;}
+.icon-amex,
+.icon-amex-off.ativo{background-position: -17px 0px;}
+.icon-visa,
+.icon-visa-off.ativo{background-position: -17px -36px;}
+.icon-marter-card,
+.icon-marter-card-off.ativo{background-position: -17px -76px;}
+.icon-diners,
+.icon-diners-off.ativo{background-position: -17px -118px;}
+.icon-hipercard,
+.icon-hipercard-off.ativo{background-position: -17px -152px;}
+.icon-itau,
+.icon-itau-off.ativo{background-position: -17px -188px;}
+.icon-bradesco,
+.icon-bradesco-off.ativo{background-position: -17px -221px;}
+.icon-hiper,
+.icon-hiper-off.ativo{background-position: -216px -36px;}
+.icon-discover,
+.icon-discover-off.ativo{background-position: -216px -73px;}
+.icon-aura,
+.icon-aura-off.ativo{background-position: -216px -116px;}
+.icon-cabal,
+.icon-cabal-off.ativo{background-position: -216px -153px;}
+.icon-soro,
+.icon-soro-off.ativo{background-position: -216px -190px;}
+.icon-sicred,
+.icon-sicred-off.ativo{background-position: -216px -228px;}
+.icon-cooper,
+.icon-cooper-off.ativo{background-position: -216px -266px;}
+.icon-avista,
+.icon-avista-off.ativo{background-position: -216px -306px;}
+.icon-mais,
+.icon-mais-off.ativo{background-position: -216px -347px;}
+.icon-union,
+.icon-union-off.ativo{background-position: -216px -390px;}
+.icon-aelo,
+.icon-aelo-off.ativo{background-position: -366px 0px;}
+.icon-elo,
+.icon-elo-off.ativo{background-position: -366px -37px;}
+.icon-goodcard,
+.icon-goodcard-off.ativo{background-position: -366px -74px;}
+.icon-jcb,
+.icon-jcb-off.ativo{background-position: -366px -115px;}
+.icon-agiplan,
+.icon-agiplan-off.ativo{background-position: -366px -152px;}
+.icon-sodexo,
+.icon-sodexo-off.ativo{background-position: -366px -190px;}
+.icon-cba,
+.icon-cba-off.ativo{background-position: -366px -227px;}
+.icon-sapore,
+.icon-sapore-off.ativo{background-position: -366px -266px;}
+.icon-policard,
+.icon-policard-off.ativo{background-position: -366px -307px;}
+.icon-verocheque,
+.icon-verocheque-off.ativo{background-position: -366px -349px;}
+.icon-credz,
+.icon-credz-off.ativo{background-position: -366px -388px;}
+.icon-greencard,
+.icon-greencard-off.ativo{background-position: -366px -427px;}
+.icon-banescard,
+.icon-banescard-off.ativo{background-position: -366px -765px;}
+
+.icon-amex-off{background-position: -117px 0px;}
+.icon-visa-off{background-position: -117px -36px;}
+.icon-marter-card-off{background-position: -116px -76px;}
+.icon-diners-off{background-position: -117px -118px;}
+.icon-hipercard-off{background-position: -117px -152px;}
+.icon-itau-off{background-position: -117px -188px;}
+.icon-bradesco-off{background-position: -117px -221px;}
+.icon-hiper-off{background-position: -283px -36px;}
+.icon-discover-off{background-position: -283px -73px;}
+.icon-aura-off{background-position: -283px -116px;}
+.icon-cabal-off{background-position: -283px -153px;}
+.icon-soro-off{background-position: -283px -190px;}
+.icon-sicred-off{background-position: -283px -228px;}
+.icon-cooper-off{background-position: -283px -266px;}
+.icon-avista-off{background-position: -283px -306px;}
+.icon-mais-off{background-position: -283px -347px;}
+.icon-union-off{background-position: -283px -390px;}
+.icon-aelo-off{background-position: -434px -0px;}
+.icon-elo-off{background-position: -434px -37px;}
+.icon-goodcard-off{background-position: -434px -74px;}
+.icon-jcb-off{background-position: -434px -115px;}
+.icon-agiplan-off{background-position: -434px -152px;}
+.icon-sodexo-off{background-position: -434px -190px;}
+.icon-cba-off{background-position: -434px -227px;}
+.icon-sapore-off{background-position: -434px -266px;}
+.icon-policard-off{background-position: -434px -307px;}
+.icon-verocheque-off{background-position: -434px -349px;}
+.icon-credz-off{background-position: -434px -388px;}
+.icon-greencard-off{background-position: -434px -427px;}
+.icon-banescard-off{background-position: -434px -765px;}
+
+.icon-cod-seg,
+.icon-cod-seg.ativo{ margin-left: 6px; margin-top: 2px; background-position: -216px 0px;}
+.icon-cod-seg{background-position: -284px 0px;}
+.icon-boleto{background-position: -17px -255px;}

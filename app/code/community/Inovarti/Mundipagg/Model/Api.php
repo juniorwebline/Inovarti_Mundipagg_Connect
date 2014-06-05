@@ -547,11 +547,12 @@ class Inovarti_Mundipagg_Model_Api extends Mage_Payment_Model_Method_Abstract {
     }
     public function getVerificationRegEx() {
         $verificationExpList = array(
+            'AE' => '/^[0-9]{4}$/', // American Express
             'VI' => '/^[0-9]{3}$/', // Visa
             'MC' => '/^[0-9]{3}$/', // Master Card
-            'AE' => '/^[0-9]{4}$/', // American Express
-            'ELO' => '/^[0-9]{3,4}$/',
-            'SM' => '/^[0-9]{3,4}$/', // Switch or Maestro
+            'DN' => '/^[0-9]{3}$/', // Dinners
+            'EL' => '/^[0-9]{3}$/', // Elo
+            'HI' => '/^[0-9]{3,4}$/' //Hipercard
         );
         return $verificationExpList;
     }

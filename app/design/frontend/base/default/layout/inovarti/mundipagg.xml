@@ -12,24 +12,28 @@
         <reference name="head">
             <action method="addJs" ifconfig="payment/mundipaggsettings/active"><script>inovarti/core/jquery.min.js</script></action>
             <action method="addJs" ifconfig="payment/mundipaggsettings/active"><script>inovarti/script.js</script></action>
+            <action method="addCss" ifconfig="payment/mundipaggsettings/active"><stylesheet>css/mundipagg.css</stylesheet></action>
     	</reference>       
     </checkout_onepage_index>
     <onepagecheckout_index_index>
         <reference name="head">
             <action method="addJs" ifconfig="payment/mundipaggsettings/active"><script>inovarti/core/jquery.min.js</script></action>
             <action method="addJs" ifconfig="payment/mundipaggsettings/active"><script>inovarti/script.js</script></action>
+            <action method="addCss" ifconfig="payment/mundipaggsettings/active"><stylesheet>css/mundipagg.css</stylesheet></action>
     	</reference>        
     </onepagecheckout_index_index>
     <onestepcheckout_index_index>
         <reference name="head">
             <action method="addJs" ifconfig="payment/mundipaggsettings/active"><script>inovarti/core/jquery.min.js</script></action>
             <action method="addJs" ifconfig="payment/mundipaggsettings/active"><script>inovarti/script.js</script></action>
+            <action method="addCss" ifconfig="payment/mundipaggsettings/active"><stylesheet>css/mundipagg.css</stylesheet></action>
     	</reference>        
     </onestepcheckout_index_index>
     <inovarti_onestepcheckout_index_index>
         <reference name="head">
             <action method="addJs" ifconfig="payment/mundipaggsettings/active"><script>inovarti/core/jquery.min.js</script></action>
             <action method="addJs" ifconfig="payment/mundipaggsettings/active"><script>inovarti/script.js</script></action>
+            <action method="addCss" ifconfig="payment/mundipaggsettings/active"><stylesheet>css/mundipagg.css</stylesheet></action>
     	</reference>        
     </inovarti_onestepcheckout_index_index>
     <mundipagg_index_index>

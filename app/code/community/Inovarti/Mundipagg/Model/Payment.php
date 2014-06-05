@@ -255,10 +255,85 @@ class Inovarti_Mundipagg_Model_Payment extends Inovarti_Mundipagg_Model_Api {
         }
         return parent::capture($payment, $amount);
     }
+    public function validate()
+    {
+        /*
+        * calling parent validate function
+        */
+        //parent::validate();
 
-    public function validate() {
-        //nao precisa validar o gateway valida
-        return true;
+        $info = $this->getInfoInstance();
+        $errorMsg = false;
+        $availableTypes = explode(',',$this->getConfigData('cctypes'));
+
+        $ccNumber = $info->getCcNumber();
+
+        // remove credit card number delimiters such as "-" and space
+        $ccNumber = preg_replace('/[\-\s]+/', '', $ccNumber);
+        $info->setCcNumber($ccNumber);
+
+        $ccType = '';
+
+        if (in_array($info->getCcType(), $availableTypes)){
+            if ($this->validateCcNum($ccNumber)
+                // Other credit card type number validation
+                || ($this->OtherCcType($info->getCcType()) && $this->validateCcNumOther($ccNumber))) {
+
+                $ccType = 'OT';
+                $ccTypeRegExpList = array(
+                    // American Express
+                    'AE'  => '/^3[47][0-9]{13}$/',
+                    // Visa
+                    'VI'  => '/^4[0-9]{12}([0-9]{3})?$/',
+                    // Master Card
+                    'MC'  => '/^5[1-5][0-9]{14}$/',
+                    // Dinners
+                    'DN'  => '/^3(?:0[0-5]|[68][0-9])[0-9]{11}$/',
+                    // Elo
+                    'EL'  => '/^([6362]{4})([0-9]{12})$/',
+                    // Hipercard
+                    'HI'  => '/^(606282[0-9]{10})|(3841[0-9]{12})$/'
+                );
+
+                $specifiedCCType = $info->getCcType();
+                if (array_key_exists($specifiedCCType, $ccTypeRegExpList)) {
+                    $ccTypeRegExp = $ccTypeRegExpList[$specifiedCCType];
+                    if (!preg_match($ccTypeRegExp, $ccNumber)) {
+                        $errorMsg = Mage::helper('payment')->__('Credit card number mismatch with credit card type.');
+                    }
+                }
+            }
+            else {
+                $errorMsg = Mage::helper('payment')->__('Invalid Credit Card Number');
+            }
+
+        }
+        else {
+            $errorMsg = Mage::helper('payment')->__('Credit card type is not allowed for this payment method.');
+        }
+
+        //validate credit card verification number
+        if ($errorMsg === false && $this->hasVerification()) {
+            $verifcationRegEx = $this->getVerificationRegEx();
+            $regExp = isset($verifcationRegEx[$info->getCcType()]) ? $verifcationRegEx[$info->getCcType()] : '';
+            if (!$info->getCcCid() || !$regExp || !preg_match($regExp ,$info->getCcCid())){
+                $errorMsg = Mage::helper('payment')->__('Please enter a valid credit card verification number.');
+            }
+        }
+
+        if ($ccType != 'SS' && !$this->_validateExpDate($info->getCcExpYear(), $info->getCcExpMonth())) {
+            $errorMsg = Mage::helper('payment')->__('Incorrect credit card expiration date.');
+        }
+
+        if($errorMsg){
+            Mage::throwException($errorMsg);
+        }
+
+        //This must be after all validation conditions
+        if ($this->getIsCentinelValidationEnabled()) {
+            $this->getCentinelValidator()->validate($this->getCentinelValidationData());
+        }
+
+        return $this;
     }
-
 }
