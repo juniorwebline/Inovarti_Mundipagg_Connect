@@ -12,21 +12,12 @@
 <?php echo 'Número do cartão: xxxx-' . $this->htmlEscape($this->getInfo()->getCcLast4()) ?><br/>
 <?php echo 'Data de validade: ' . $this->htmlEscape($this->getCcExpMonth()) . '/' . $this->htmlEscape($this->getInfo()->getCcExpYear()) ?><br/>
 <?php echo 'Parcelamento(s):  ' . $this->htmlEscape($this->getCcParcelamento()) . 'x R$' . $this->htmlEscape(number_format($this->getCcAmountInCents() / $this->getCcParcelamento(), 2, ',', '.')) ?><br/>
-<?php echo 'Cpf:  ' . $this->htmlEscape($this->getCcCpf()) ?><br/>
+<?php echo 'CPF/CNPJ:  ' . $this->htmlEscape($this->getCcCpf()) ?><br/>
 <script type="text/javascript">// <![CDATA[
-	
-	
-    function captureMundipaggOrder(OrderKey, orderId)
-    {
-        var url = '<?php echo $this->getUrl('mundipagg/admin/capture') ?>?OrderKey=' + OrderKey + '&order=' + orderId;
-        showModalInovarti(url,"Captura na Mundipagg");
-        
-    }
-	
 	
     function loadMundipaggWebServiceData(OrderKey, orderId)
     {
-        var url = '<?php echo $this->getUrl('mundipagg/admin/consult') ?>?OrderKey=' + OrderKey + '&order=' + orderId;
+        var url = '<?php echo $this->getUrl('mundipagg/index/consult') ?>?OrderKey=' + OrderKey + '&order=' + orderId;
         showModalInovarti(url,"Consulta na Mundipagg ");	
     }
     function showModalInovarti(url,title){

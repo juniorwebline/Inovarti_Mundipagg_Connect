@@ -259,78 +259,8 @@ class Inovarti_Mundipagg_Model_Payment extends Inovarti_Mundipagg_Model_Api {
     }
 
     public function validate() {
-
-        $info = $this->getInfoInstance();
-        
-        $errorMsg = false;
-        $availableTypes = explode(',', $this->getConfigData('cctypes'));
-
-        $ccNumber = $info->getCcNumber();
-        $ccNumber = preg_replace('/[\-\s]+/', '', $ccNumber);
-        $info->setCcNumber($ccNumber);
-
-        $ccType = '';
-
-        if (in_array($info->getCcType(), $availableTypes)) {
-            if ($this->validateCcNum($ccNumber)
-            ) {
-                $ccType = 'ELO';
-                $ccTypeRegExpList = array(
-                    'SO' => '/(^(6334)[5-9](\d{11}$|\d{13,14}$))|(^(6767)(\d{12}$|\d{14,15}$))/',
-                    'SM' => '/(^(5[0678])\d{11,18}$)|(^(6[^05])\d{11,18}$)|(^(601)[^1]\d{9,16}$)|(^(6011)\d{9,11}$)'
-                    . '|(^(6011)\d{13,16}$)|(^(65)\d{11,13}$)|(^(65)\d{15,18}$)'
-                    . '|(^(49030)[2-9](\d{10}$|\d{12,13}$))|(^(49033)[5-9](\d{10}$|\d{12,13}$))'
-                    . '|(^(49110)[1-2](\d{10}$|\d{12,13}$))|(^(49117)[4-9](\d{10}$|\d{12,13}$))'
-                    . '|(^(49118)[0-2](\d{10}$|\d{12,13}$))|(^(4936)(\d{12}$|\d{14,15}$))/',
-                    'VI' => '/^4[0-9]{12}([0-9]{3})?$/',
-                    'MC' => '/^5[1-5][0-9]{14}$/',
-                    'AE' => '/^3[47][0-9]{13}$/',
-                    'DI' => '/^6011[0-9]{12}$/',
-                    'HI' => '/^[0-9]{16}$/',
-                    'DN' => '/^3(?:0[0-5]|[68][0-9])[0-9]{11}$/',
-                    'JCB' => '/^(3[0-9]{15}|(2131|1800)[0-9]{11})$/'
-                );
-
-                foreach ($ccTypeRegExpList as $ccTypeMatch => $ccTypeRegExp) {
-                    if (preg_match($ccTypeRegExp, $ccNumber)) {
-                        $ccType = $ccTypeMatch;
-                        break;
-                    }
-                }
-
-                if (!$this->OtherCcType($info->getCcType()) && $ccType != $info->getCcType()) {
-                    $errorMsg = Mage::helper('mundipagg')->__('Credit card number mismatch with credit card type.');
-                }
-            } else {
-                $errorMsg = Mage::helper('mundipagg')->__('Invalid Credit Card Number');
-            }
-        } else {
-            $errorMsg = Mage::helper('mundipagg')->__('Credit card type is not allowed for this payment method.');
-        }
-
-        //validate credit card verification number
-        if ($errorMsg === false && $this->hasVerification()) {
-            $verifcationRegEx = $this->getVerificationRegEx();
-            $regExp = isset($verifcationRegEx[$info->getCcType()]) ? $verifcationRegEx[$info->getCcType()] : '';
-            if (!$info->getCcCid() || !$regExp || !preg_match($regExp, $info->getCcCid())) {
-                $errorMsg = Mage::helper('mundipagg')->__('Please enter a valid credit card verification number.');
-            }
-        }
-
-        if ($ccType != 'SS' && !$this->_validateExpDate($info->getCcExpYear(), $info->getCcExpMonth())) {
-            $errorMsg = Mage::helper('mundipagg')->__('Incorrect credit card expiration date.');
-        }
-
-        if ($errorMsg) {
-            Mage::throwException($errorMsg);
-        }
-
-        //This must be after all validation conditions
-        if ($this->getIsCentinelValidationEnabled()) {
-            $this->getCentinelValidator()->validate($this->getCentinelValidationData());
-        }
-
-        return $this;
+        //nao precisa validar o gateway valida
+        return true;
     }
 
 }

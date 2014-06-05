@@ -300,10 +300,10 @@ class Inovarti_Mundipagg_Model_Api extends Mage_Payment_Model_Method_Abstract {
             'Email' => $payment->getOrder()->getCustomerEmail(),
             'IpAddress' => ($payment->getOrder()->getRemoteIp() != '::1') ? $payment->getOrder()->getRemoteIp() : '127.0.0.1',
             'Name' => $payment->getOrder()->getCustomerFirstname() . ' ' . $payment->getOrder()->getCustomerLastname(),
-            'TaxDocumentNumber' => ($payment->getCcCpf() == '') ? $payment->getCcCpf() : $this->limpaCNPJ($payment->getOrder()->getCustomerTaxvat()),
+            'TaxDocumentNumber' => ($payment->getMethod()=='mundipagg_boleto') ? $this->limpaCNPJ($payment->getOrder()->getCustomerTaxvat()) : $payment->getCcCpf(),
             'TaxDocumentTypeEnum' => 'CPF',
             'HomePhone' => $this->tratatel($billing->getTelephone()),
-            'WorkPhone' => $this->tratatel($billing->getCelular()),
+            'WorkPhone' => $this->tratatel($billing->getFax()),
             'BuyerAddressCollection' => array(
                 'BuyerAddress' => array(
                     'City' => $billing->getCity(),
@@ -336,7 +336,6 @@ class Inovarti_Mundipagg_Model_Api extends Mage_Payment_Model_Method_Abstract {
         } else {
             $transaction->setIsClosed(1);
         }
-        //$this->_debug('_addTransaction=' . print_r($payment->getIsTransactionPending(), 1));
         foreach ($transactionAdditionalInfo as $transKey => $value) {
             $transaction->setAdditionalInformation($transKey, $value);
         }
@@ -543,7 +542,7 @@ class Inovarti_Mundipagg_Model_Api extends Mage_Payment_Model_Method_Abstract {
      * Limpa CPF/CNPJ
      */
     public function limpaCNPJ($cnpj) {
-        $cnpj = preg_replace('/[^0-9]/', '', $cnpj);
+        $cnpj = preg_replace('/\D/', '', $cnpj);
         return $cnpj;
     }
     public function getVerificationRegEx() {
@@ -696,8 +695,6 @@ class Inovarti_Mundipagg_Model_Api extends Mage_Payment_Model_Method_Abstract {
             $invoice->getOrder()->setIsInProcess(true);
             $invoice->capture();
             $invoice->save();
-            $order->addStatusHistoryComment('Captured online amount of R$' . $amount * 100, false);
-
             $payment->setTransactionId($this->transaction_id);
         }
         return $this;
@@ -765,73 +762,4 @@ class Inovarti_Mundipagg_Model_Api extends Mage_Payment_Model_Method_Abstract {
             Mage::log($debugData, null, 'mundipagg_' . $this->getCode() . '.log', true);
         }
     }
-
-    public function setDiscount($info) {
-        $quote = $info->getQuote();
-        $quoteid = $quote->getId();
-        if ($quoteid) {
-            $discountAmount = $this->getDescontoParcelamento();
-            $minInstallmentValue = $this->getParcelamentoPriceMin();
-            $valorTotal = $this->getValorTotal();
-            $discountAmountDescription = "Desconto " . $discountAmount . "%";
-            $Amount = 0;
-
-            if ($discountAmount > 0 
-                    && ($quote->getPayment()->getCcParcelamento() == 1 && $quote->getPayment()->getMethod() == 'mundipagg') 
-                    && ($valorTotal > $minInstallmentValue)
-                ) {
-                
-                $total = $quote->getBaseSubtotal();
-                $Amount = $total * $discountAmount / 100;
-
-                $canAddItems = $quote->isVirtual() ? ('billing') : ('shipping');
-                foreach ($quote->getAllAddresses() as $address) {
-
-                    $address->setSubtotalWithDiscoun(0);
-                    $address->setBaseSubtotalWithDiscount(0);
-                    $address->setGrandTotal(0);
-                    $address->setBaseGrandTotal(0);
-
-                    $address->collectTotals();
-
-
-                    if ($address->getAddressType() == $canAddItems) {
-                        $address->setSubtotalWithDiscount((float) $address->getSubtotalWithDiscount() + $Amount);
-                        $address->setBaseSubtotalWithDiscount((float) $address->getBaseSubtotalWithDiscount() + $Amount);
-                        $address->setGrandTotal((float) $address->getGrandTotal() - $Amount);
-                        $address->setBaseGrandTotal((float) $address->getBaseGrandTotal() - $Amount);
-                        if ($address->getDiscountDescription()) {
-                            $address->setDiscountAmount($address->getDiscountAmount() - $Amount);
-                            $address->setBaseDiscountAmount($address->getBaseDiscountAmount() - $Amount);
-                            $address->setDiscountDescription($address->getDiscountDescription() . ',' . $discountAmountDescription);
-                        } else {
-                            $address->setDiscountAmount($address->getDiscountAmount() - $Amount);
-                            $address->setDiscountDescription($discountAmountDescription);
-                            $address->setBaseDiscountAmount($address->getBaseDiscountAmount() - $Amount);
-                        }
-                        $address->save();
-                    }
-                }
-            } else {
-                $quote->setSubtotalWithDiscount($quote->getSubtotalWithDiscount() + $Amount)
-                        ->setBaseSubtotalWithDiscount($quote->getBaseSubtotalWithDiscount() + $Amount)
-                        ->save();
-                $canAddItems = $quote->isVirtual() ? ('billing') : ('shipping');
-                foreach ($quote->getAllAddresses() as $address) {
-
-                    if ($address->getAddressType() == $canAddItems) {
-                        $address->setSubtotalWithDiscount((float) $address->getSubtotalWithDiscount() + $Amount);
-                        $address->setBaseSubtotalWithDiscount((float) $address->getBaseSubtotalWithDiscount() + $Amount);
-                        $address->setGrandTotal((float) $address->getGrandTotal() + $Amount);
-                        $address->setBaseGrandTotal((float) $address->getBaseGrandTotal() + $Amount);
-
-                        $address->setDiscountAmount($address->getDiscountAmount() + $Amount)
-                                ->setBaseDiscountAmount($address->getBaseDiscountAmount() + $Amount)
-                                ->save();
-                    }
-                }
-            }
-        }
-    }
-
 }

@@ -59,16 +59,13 @@ class Inovarti_Mundipagg_Model_Boleto extends Inovarti_Mundipagg_Model_Api {
         ));
 
 
-        $this->_debug('processPayment():$createOrderRequest=' . print_r($parametros, 1));
         $authorize = $this->getService()->CreateOrder($parametros);
         $this->_debug('processPayment():$resultado=' . print_r($authorize, 1));
 
-        $Success = (isset($authorize->CreateOrderResult->BoletoTransactionResultCollection->BoletoTransactionResult->Success)) ? 'SUCCESS' : 'ERROR';
         $resultado = (isset($authorize->CreateOrderResult->BoletoTransactionResultCollection->BoletoTransactionResult)) ?
                 $authorize->CreateOrderResult->BoletoTransactionResultCollection->BoletoTransactionResult :
                 0;
-
-        if ($Success == 'SUCCESS') {
+        if (isset($authorize->CreateOrderResult->Success) && $authorize->CreateOrderResult->Success == true) {
             if (count($resultado) == 1) {
                 $this->_addTransaction($payment, $resultado->TransactionKey, Mage_Sales_Model_Order_Payment_Transaction::TYPE_ORDER, $resultado);
             } else {
@@ -78,26 +75,23 @@ class Inovarti_Mundipagg_Model_Boleto extends Inovarti_Mundipagg_Model_Api {
             }
             //Grava retorno
             $info = $this->getInfoInstance();
-            if ($resultado->TransactionKey != null) {
-                $info->setLastTransId($resultado->TransactionKey);
-            }
+            $info->setLastTransId($resultado->TransactionKey);
             $info->setOrderKey($authorize->CreateOrderResult->OrderKey);
             $info->setOrderReference($authorize->CreateOrderResult->OrderReference);
-            if ($resultado->BoletoUrl != null) {
-                $info->setBoletoUrl($resultado->BoletoUrl);
-            }
+            $info->setBoletoUrl($resultado->BoletoUrl);
             $this->transaction_id = $resultado->TransactionKey;
             $info->save();
             //Fim Grava retorno
-        }
-        if ($Success == 'ERROR') {
-            $payment->setSkipOrderProcessing(true);
-            Mage::throwException(Mage::helper('mundipagg')->__($this->MessageGateway($resultado->AcquirerReturnCode)));
-            return $this;
         } else {
-            // Boleto
-            $payment->setTransactionId($this->transaction_id);
-            return $this;
+            if (isset($authorize->CreateOrderResult->ErrorReport->ErrorItemCollection->ErrorItem)) {
+                $payment->setSkipOrderProcessing(true);
+                Mage::throwException(Mage::helper('mundipagg')->__($authorize->CreateOrderResult->ErrorReport->ErrorItemCollection->ErrorItem->Description));
+                return $this;
+            } else {
+                $payment->setSkipOrderProcessing(true);
+                Mage::throwException(Mage::helper('mundipagg')->__($this->MessageGateway($resultado->AcquirerReturnCode)));
+                return $this;
+            }
         }
     }
 

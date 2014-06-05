@@ -19,7 +19,7 @@ if ($_info = $this->getInfo()):
 	
     function loadMundipaggWebServiceData(OrderKey, orderId)
     {
-        var url = '<?php echo $this->getUrl('mundipagg/admin/consult') ?>?OrderKey=' + OrderKey + '&order=' + orderId;
+        var url = '<?php echo $this->getUrl('mundipagg/index/consult') ?>?OrderKey=' + OrderKey + '&order=' + orderId;
         showModalInovarti(url,"Consulta na Mundipagg ");	
     }
     function showModalInovarti(url,title){

@@ -47,6 +47,11 @@
             <mundipagg>
                 <class>Inovarti_Mundipagg_Block</class>
             </mundipagg>
+            <adminhtml>
+                <rewrite>
+                    <sales_transactions_detail_grid>Inovarti_Mundipagg_Block_Adminhtml_Sales_Transactions_Detail_Grid</sales_transactions_detail_grid>
+                </rewrite>
+            </adminhtml>
         </blocks>
         <helpers>
             <mundipagg>
@@ -163,7 +168,6 @@
         <payment>
             <mundipaggsettings>
                 <active>1</active>
-                <merchant_id>8A2DD57F-1ED9-4153-B4CE-69683EFADAD5</merchant_id>
                 <title>Configuração Mundipagg</title>
                 <service>https://transaction.mundipaggone.com/MundiPaggService.svc?wsdl</service>
                 <enable_test_mode>1</enable_test_mode>

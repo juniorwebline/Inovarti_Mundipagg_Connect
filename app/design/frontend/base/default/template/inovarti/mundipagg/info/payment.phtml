@@ -12,4 +12,4 @@
 <?php echo 'Número do cartão: xxxx-'. $this->htmlEscape($this->getInfo()->getCcLast4()) ?><br/>
 <?php echo 'Data de validade: '. $this->htmlEscape($this->getCcExpMonth()).'/'. $this->htmlEscape($this->getInfo()->getCcExpYear()) ?><br/>
 <?php echo 'Parcelamento(s):  '. $this->htmlEscape($this->getCcParcelamento()).'x R$'.$this->htmlEscape(number_format($this->getCcAmountInCents()/$this->getCcParcelamento(),2,',','.')) ?><br/>
-<?php echo 'Cpf:  '. $this->htmlEscape($this->getCcCpf()) ?><br/>
+<?php echo 'CPF/CNPJ:  '. $this->htmlEscape($this->getCcCpf()) ?><br/>

@@ -21,7 +21,7 @@ class Inovarti_Mundipagg_Block_Info_Payment extends Mage_Payment_Block_Info_Cc {
         return $this->htmlEscape($this->getInfo()->getCcParcelamento());
     }
     public function getCcAmountInCents() {
-        return $this->htmlEscape($this->getInfo()->getOrder()->getGrandTotal());
+        return $this->htmlEscape($this->getInfo()->getCcValor());
     }
 
 }
