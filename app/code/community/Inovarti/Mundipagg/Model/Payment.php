@@ -109,7 +109,6 @@ class Inovarti_Mundipagg_Model_Payment extends Inovarti_Mundipagg_Model_Api {
                 )
             )
         );
-        $this->_debug('authorize():createOrderRequest=' . print_r($parametros, 1));
         $authorize = $this->getService()->CreateOrder($parametros);
         $this->_debug('authorize():$resultado=' . print_r($authorize, 1));
         $resultUltimo = $authorize->CreateOrderResult->CreditCardTransactionResultCollection->CreditCardTransactionResult;
@@ -228,7 +227,6 @@ class Inovarti_Mundipagg_Model_Payment extends Inovarti_Mundipagg_Model_Api {
                 )
             );
 
-            $this->_debug('capture():manageOrderRequest=' . print_r($parametros, 1));
             $capture = $this->getService()->ManageOrder($parametros);
             $this->_debug('capture():$resultado=' . print_r($capture, 1));
             $resultUltimo = $capture->ManageOrderResult->CreditCardTransactionResultCollection->CreditCardTransactionResult;

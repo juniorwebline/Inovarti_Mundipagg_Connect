@@ -56,7 +56,7 @@ class Inovarti_Mundipagg_Model_Api extends Mage_Payment_Model_Method_Abstract {
                     )
                 )
             );
-            $this->_debug('void():$manageOrderRequest=' . print_r($parametros, 1));
+
             $void = $this->getService()->ManageOrder($parametros);
             $this->_debug('void():$resultado=' . print_r($void, 1));
 
