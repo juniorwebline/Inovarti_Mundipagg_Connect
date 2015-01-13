@@ -36,6 +36,13 @@
             <action method="addCss" ifconfig="payment/mundipaggsettings/active"><stylesheet>css/mundipagg.css</stylesheet></action>
     	</reference>        
     </inovarti_onestepcheckout_index_index>
+    <idecheckoutvm_index_index>
+        <reference name="head">
+            <action method="addJs" ifconfig="payment/mundipaggsettings/active"><script>inovarti/core/jquery.min.js</script></action>
+            <action method="addJs" ifconfig="payment/mundipaggsettings/active"><script>inovarti/script.js</script></action>
+            <action method="addCss" ifconfig="payment/mundipaggsettings/active"><stylesheet>css/mundipagg.css</stylesheet></action>
+    	</reference>       
+    </idecheckoutvm_index_index>
     <mundipagg_index_index>
         <remove name="left"/>
         <remove name="right"/>
