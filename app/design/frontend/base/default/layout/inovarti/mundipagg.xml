@@ -8,6 +8,13 @@
  */
  -->
 <layout version="0.1.0">
+<idecheckoutvm_index_index>
+        <reference name="head">
+            <action method="addJs" ifconfig="payment/mundipaggsettings/active"><script>inovarti/core/jquery.min.js</script></action>
+            <action method="addJs" ifconfig="payment/mundipaggsettings/active"><script>inovarti/script.js</script></action>
+            <action method="addCss" ifconfig="payment/mundipaggsettings/active"><stylesheet>css/mundipagg.css</stylesheet></action>
+    	</reference>       
+    </idecheckoutvm_index_index>
     <checkout_onepage_index>
         <reference name="head">
             <action method="addJs" ifconfig="payment/mundipaggsettings/active"><script>inovarti/core/jquery.min.js</script></action>
